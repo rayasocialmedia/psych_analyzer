@@ -41,12 +41,10 @@ module PsychAnalyzer
       
       #cache the trained data 
       @cache.set('trainingData', trainingData, :expiry => (15*24*3600))
-      puts "train from fresh data"
     else
       trainingData = @cache.get('trainingData')
       @dictionary = trainingData["dictionary"]
       @ignored_words = trainingData["ignored_words"]
-      puts "train from cached data"
     end
       #
     return true
